@@ -1,19 +1,14 @@
-def Q1_Draw_an_arrow(treeSize):
-    if(treeSize < 2):
-        print("Too small!!!")
-        return
-    a = '_'
-    b = '*'
-    for i in range(treeSize + 1):
-        print(a * (treeSize - i) + b * (2 * i + 1) + a * (treeSize - i))
-    for _ in range(treeSize + 1):
-        print(a * (treeSize - treeSize // 2) + b * (2 * (treeSize//2) + 1) + a * (treeSize - treeSize // 2))
-
 import random
+random.seed(0xC8763)
+m = 2722458769
+def Q1_CountNumbers(n: int) -> int:
+  def recur(n: int) -> int:
+    return 1 if n == 0 else (recur(n//2)**2 * (20 if n & 1 else 1) % m)
+  return recur(n//2) * (5 if n & 1 else 1) % m # n & 1 means the last bit of n
+
 count = -1
-arr = [i for i in range(1,100)]
 def gen_data():
+    """Generate function inputs as array"""
     global count
-    '''return an array of test data'''
     count = count + 1
-    return [arr[count]]
+    return [random.randint(1, int(1e12))]
