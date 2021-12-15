@@ -1,7 +1,7 @@
 import solution # Where TA's solution resides in.
 import importlib
 import signal
-from utils import TimeOutException
+from util.exception_class import TimeOutException
 
 def handler(signum, frame):
     raise TimeOutException("Timeout!", 0)
@@ -16,7 +16,7 @@ def grade_one(criteria , modulename,n=10):
             data = solution.gen_data()
             if data is None:
                 break # avoid data out of range
-            if criteria(solution.Q1_CountNumbers, data) == criteria(answer.Q1_CountNumbers, data):
+            if criteria(solution.question1, data) == criteria(answer.question1, data):
                 pass_count+=1
         if pass_count == n:
             return "Pass"
