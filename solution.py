@@ -11,3 +11,6 @@ def gen_data():
     global _count
     _count = _count + 1
     return [1, 2, 3]  # This will be like F(1,2,3)
+def data_reset():
+    global count
+    count = -1
