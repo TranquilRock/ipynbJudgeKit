@@ -6,6 +6,7 @@
 	1. Enter "python3 judge_all.py"
 		- add " --convert" if you haven't convert ipynb to py file yet.
 		- add " --directory path_to_ipynb_here" if ipynb files are in another directory.
+		- add " --funcName function_name_here" to specify the function you would like to be judged.
 - File explanation
 	- solution.py
 		- You should put your solution here, and provide a gen_data function that returns argument list for grading.
@@ -17,6 +18,7 @@
 			- " --out result_file_name_here" 
 			- " --convert" this will use Jupyter to convert ipynb to py file.
 			- " --directory path_to_ipynb_here" tell python where do ipynb files reside.
+		    - " --funcName function_name_here" specify the function you would like to be judged.
 	- format_filename.sh
 		- This shell script will rename all ipynb in the same directory with first 9 characters of the file.
 	

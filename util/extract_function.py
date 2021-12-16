@@ -1,4 +1,4 @@
-def extract_function(directory="./", source="a.py", out="out.py"):
+def extract_function(directory="./", source="a.py", out="out.py", target_function=None):
     with open(directory + out, "w") as f:  # clear out file
         # Notice this code can't handle breakline '\' yet
         with open(directory + source, "r") as myfile:
@@ -20,8 +20,10 @@ def extract_function(directory="./", source="a.py", out="out.py"):
                 # If line is not inside a function, check if it's a function
                 if not writing:
                     if line.startswith("def"):
-                        writing = True
-                        function.append(line)
+                        # No specific function name or speific name in def
+                        if (not target_function) or (target_function and target_function in line):
+                            writing = True
+                            function.append(line)
                     elif line.startswith("import"):  # write directly
                         f.writelines([line])
             f.writelines(function)
